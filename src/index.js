@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
     socket.join(user.room);
     socket.emit('message', generateMessage('Admin', 'welcome'));
     socket.broadcast
-      .to(room)
+      .to(user.room)
       .emit(
         'message',
         generateMessage('Admin', `${user.username} has joined!`)
